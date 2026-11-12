@@ -23,10 +23,17 @@ function mostrarJuegos(lista){
     juegosContainer.innerHTML="";
 
     lista.forEach(juegos =>{
+    
+    let imagen = "imagenes/juegos/no image.jpg";
+
+    if(juegos.name === "The Legend of Zelda"){
+        imagen =  "imagenes/juegos/Legend_of_zelda.jpg";
+    }
+
 
     juegosContainer.innerHTML +=  ` <article class="card">
     
-    <img src="imagenes/juegos/Legend_of_zelda.jpg" alt="The Legend of Zelda">
+    <img src="${imagen}" alt="${juego.name}">
     <h2>${juegos.name}</h2>
     <p>${juegos.description}</p>
     <p>Desarrollador: ${juegos.developer}</p>
