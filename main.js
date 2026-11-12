@@ -33,7 +33,7 @@ function mostrarJuegos(lista){
 
     juegosContainer.innerHTML +=  ` <article class="card">
     
-    <img src="${imagen}" alt="${juego.name}">
+    <img src="${imagen}" alt="${juegos.name}">
     <h2>${juegos.name}</h2>
     <p>${juegos.description}</p>
     <p>Desarrollador: ${juegos.developer}</p>
