@@ -1,11 +1,11 @@
-fetch('https://zelda.fanapis.com/api/games')
+fetch('https://zelda.fanapis.com/api/games?limit=25')
 .then(response => response.json())
 .then(data => {
     console.log(data);
 
     juegos = data.data;
 
-    console.log(juegos);
+    console.log(juegos[0]);
 
     mostrarJuegos(juegos);
 })
@@ -26,6 +26,7 @@ function mostrarJuegos(lista){
 
     juegosContainer.innerHTML +=  ` <article class="card">
     
+    <img src="imagenes/juegos/Legend_of_zelda.jpg" alt="The Legend of Zelda">
     <h2>${juegos.name}</h2>
     <p>${juegos.description}</p>
     <p>Desarrollador: ${juegos.developer}</p>
