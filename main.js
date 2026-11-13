@@ -78,6 +78,34 @@ function mostrarJuegos(lista){
         imagen =  "imagenes/juegos/Hyrule warriors.jpg";
     }
 
+    else if(juegos.name === "The Legend of Zelda: Four Swords Adventures"){
+        imagen =  "imagenes/juegos/Four Swords Adventure.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Tri Force Heroes"){
+        imagen =  "imagenes/juegos/Tri force heroes.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Breath of the Wild"){
+        imagen =  "imagenes/juegos/BOTW.jpg";
+    }
+
+    else if(juegos.name === "Zelda: The Wand of Gamelon"){
+        imagen =  "imagenes/juegos/wand of gamelon.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Four Swords"){
+        imagen =  "imagenes/juegos/four swords.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: The Minish Cap"){
+        imagen =  "imagenes/juegos/Minish cap.png";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Four Swords Anniversary Edition"){
+        imagen =  "imagenes/juegos/FW  AE.jpg";
+    }
+
 
 
     juegosContainer.innerHTML +=  ` <article class="card">
