@@ -8,6 +8,7 @@ fetch('https://zelda.fanapis.com/api/games?limit=25')
     console.log(juegos[0]);
 
     mostrarJuegos(juegos);
+    actualizarFiltro();
 })
 
 .catch(error => {
@@ -153,4 +154,30 @@ function buscar(){
     })
 
     mostrarJuegos(juegosFiltrados)
+}
+
+const filtroDesarrollador = document.getElementById("filtroDesarrollador")
+
+filtroDesarrollador.addEventListener("change", filtrar)
+
+function filtrar(){
+    const juegosFiltrados = juegos.filter( juegos =>{
+        return juegos.developer.includes(filtroDesarrollador.value)
+    })
+
+    mostrarJuegos(juegosFiltrados)
+}
+
+function actualizarFiltro(){
+    let desarrolladores = [];
+
+    juegos.forEach(juegos => {
+        if(!desarrolladores.includes(juegos.developer)){
+            desarrolladores.push(juegos.developer)
+        }
+    })
+
+    desarrolladores.forEach(desarrollador =>{
+        filtroDesarrollador.innerHTML += `<option value="${desarrollador}">${desarrollador}</option>`
+    })
 }
