@@ -157,12 +157,15 @@ function buscar(){
 }
 
 const filtroDesarrollador = document.getElementById("filtroDesarrollador")
+const filtroPublicador = document.getElementById("filtroPublicador")
 
 filtroDesarrollador.addEventListener("change", filtrar)
+filtroPublicador.addEventListener("change", filtrar)
 
 function filtrar(){
     const juegosFiltrados = juegos.filter( juegos =>{
         return juegos.developer.includes(filtroDesarrollador.value)
+        && juegos.publisher.includes(filtroPublicador.value)
     })
 
     mostrarJuegos(juegosFiltrados)
