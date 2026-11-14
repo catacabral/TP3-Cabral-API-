@@ -106,6 +106,23 @@ function mostrarJuegos(lista){
         imagen =  "imagenes/juegos/FW  AE.jpg";
     }
 
+    else if(juegos.name === "Hyrule Warriors: Age of Calamity"){
+        imagen =  "imagenes/juegos/Age of calamity.jpg";
+    }
+
+    else if(juegos.name === "Link: The Faces of Evil"){
+        imagen =  "imagenes/juegos/Faces of evil.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Phantom Hourglass"){
+        imagen =  "imagenes/juegos/Phantom Hourglass.jpg";
+    }
+
+    else if(juegos.name === "The Legend of Zelda: Link's Awakening"){
+        imagen =  "imagenes/juegos/Link's_Awakening.png";
+    }
+    
+
 
 
     juegosContainer.innerHTML +=  ` <article class="card">
@@ -121,4 +138,19 @@ function mostrarJuegos(lista){
     `;
 
     })
+}
+
+const buscador = document.getElementById("buscador")
+
+buscador.addEventListener("input", buscar)
+
+function buscar(){
+    
+    const texto = buscador.value.toLowerCase()
+
+    const juegosFiltrados = juegos.filter(juegos => {
+        return juegos.name.toLowerCase().includes(texto)
+    })
+
+    mostrarJuegos(juegosFiltrados)
 }
