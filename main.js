@@ -151,6 +151,9 @@ function buscar(){
 
     const juegosFiltrados = juegos.filter(juegos => {
         return juegos.name.toLowerCase().includes(texto)
+        || juegos.developer.toLowerCase().includes(texto)
+        || juegos.publisher.toLowerCase().includes(texto)
+        || juegos.released_date.toLowerCase().includes(texto)
     })
 
     mostrarJuegos(juegosFiltrados)
@@ -158,14 +161,17 @@ function buscar(){
 
 const filtroDesarrollador = document.getElementById("filtroDesarrollador")
 const filtroPublicador = document.getElementById("filtroPublicador")
+const filtroAño = document.getElementById("filtroAño")
 
 filtroDesarrollador.addEventListener("change", filtrar)
 filtroPublicador.addEventListener("change", filtrar)
+filtroAño.addEventListener("change", filtrar)
 
 function filtrar(){
     const juegosFiltrados = juegos.filter( juegos =>{
         return juegos.developer.includes(filtroDesarrollador.value)
         && juegos.publisher.includes(filtroPublicador.value)
+        && juegos.released_date.includes(filtroAño.value);
     })
 
     mostrarJuegos(juegosFiltrados)
@@ -182,5 +188,29 @@ function actualizarFiltro(){
 
     desarrolladores.forEach(desarrollador =>{
         filtroDesarrollador.innerHTML += `<option value="${desarrollador}">${desarrollador}</option>`
+    })
+
+    let publicadores = [];
+
+    juegos.forEach(juegos => {
+        if(!publicadores.includes(juegos.publisher)){
+            publicadores.push(juegos.publisher)
+        }
+    })
+
+    publicadores.forEach(publicador => {
+        filtroPublicador.innerHTML += `<option value="${publicador}">${publicador}</option>`
+    })
+
+    let años = [];
+
+    juegos.forEach(juegos => {
+        if(!años.includes(juegos.released_date)){
+            años.push(juegos.released_date)
+        }
+    })
+
+    años.forEach(año=> {
+        filtroAño.innerHTML += `<option value="${año}">${año}</option>`
     })
 }
